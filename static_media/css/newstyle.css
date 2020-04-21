@@ -462,7 +462,7 @@ input[type=file]{
 }
 
 /*NOTICIAS*/
-.blog-news-column .image-box{
+.noticias-index .blog-news-column .image-box{
   max-height: 283px;
 }
 .default-featured-column.style-three h3{
@@ -505,7 +505,7 @@ input[type=file]{
 
 
 .main-slider .bg-color{
-  font-size: 26px !important;
+  font-size: 21px !important;
   text-align: left;
   max-width: 1800px;
   background:rgba(69, 58, 54, 0.5);
@@ -513,7 +513,7 @@ input[type=file]{
 }
 
 .main-slider h1{
-  font-size: 50px !important;
+  font-size: 48px !important;
   padding: 0 20px;
   background:#a0a916;
 }
