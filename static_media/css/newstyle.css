@@ -260,11 +260,11 @@ background: #ff6309;
   padding-bottom: 20px;
 }
 .team-section .team-member .image{
-  height: 190px;
+  height: 170px;
   overflow: hidden;
 }
 .team-section .team-member .image img{
-  padding: 0 10px;
+  padding: 0 15px;
 }
 .lista_copartes .team-member .image img{
   padding: 0 40px;
@@ -462,7 +462,7 @@ input[type=file]{
 }
 
 /*NOTICIAS*/
-.noticias-index .blog-news-column .image-box{
+.noticias-index .image-box{
   max-height: 283px;
 }
 .default-featured-column.style-three h3{
