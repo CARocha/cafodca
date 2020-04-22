@@ -28,11 +28,11 @@
                             <article class="inner-box">
                                 <figure class="image-box">
                                     {% if object.foto %}
-                                        {% thumbnail object.foto "640x480" crop="center" as im %}
+                                        {% thumbnail object.foto "800x480" crop="center" as im %}
                                             <img src="{{ im.url }}">
                                         {% endthumbnail %}
                                     {% else %}
-                                        <img src="https://via.placeholder.com/640x480">
+                                        <img src="https://via.placeholder.com/800x480">
                                     {% endif %}
                                 </figure>
                                 <div class="content-box padd-top-40">
@@ -150,7 +150,7 @@
                             <article class="post">
                                 <figure class="post-thumb">
                                     {% if nota.foto %}
-                                        {% thumbnail nota.foto "380x250" crop="center" as im %}
+                                        {% thumbnail nota.foto "100x60" crop="center" as im %}
                                             <img src="{{ im.url }}">
                                         {% endthumbnail %}
                                     {% elif nota.fotos.all %}
@@ -158,7 +158,7 @@
                                         <img src="{{thumb.foto.url_380x250}}" alt="">
                                         {% endfor %}
                                     {% else %}
-                                    <img src="https://via.placeholder.com/380x250">
+                                    <img src="https://via.placeholder.com/100x60">
                                     {% endif %}
                                     
                                 </figure>
