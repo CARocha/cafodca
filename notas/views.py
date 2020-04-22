@@ -9,6 +9,7 @@ from .forms import *
 from agendas.models import *
 from foros.models import *
 from foros.forms import *
+from configuracion.models import FotosPortada
 from django.shortcuts import render_to_response, get_object_or_404, redirect
 import datetime
 from django.contrib.auth.decorators import login_required
@@ -35,6 +36,7 @@ def index(request,template='index.html'):
 	paises = Pais.objects.all()
 	contrapartes = Contraparte.objects.all()
 	imagenes = Imagen.objects.exclude(foto__exact='').order_by('-id')[:8]
+	fotos = FotosPortada.objects.order_by('orden')
 
 	return render(request, template, locals())
 

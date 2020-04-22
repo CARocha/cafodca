@@ -21,6 +21,7 @@ class FotosPortada(models.Model):
     titulo = models.CharField(max_length=250)
     descripcion = models.TextField()
     foto = models.FileField(upload_to='fotoportada/')
+    orden = models.IntegerField(null=True, blank=True)
 
     def __unicode__(self):
         return self.titulo
