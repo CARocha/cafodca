@@ -64,17 +64,17 @@
                                 <figure class="image-box">
                                     <a href="#">
                                     {% if object.foto %}
-                                        {% thumbnail object.foto "640x480" crop="center" as im %}
-                                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"  alt="{{object.titulo}}">
+                                        {% thumbnail object.foto "800x480" crop="center" as im %}
+                                            <img src="{{ im.url }}"  alt="{{object.titulo}}">
                                         {% endthumbnail %}
                                     {% elif object.video%}
-                                        {% video object.video '850x637' %}
+                                        {% video object.video '800x480' %}
                                     {% elif object.fotos.all %}
                                         {%for thumb in object.fotos.all|slice:"1"%}
-                                        <img src="{{thumb.foto.url_640x480}}" alt="">
+                                        <img src="{{thumb.foto.url_800x480}}" alt="">
                                         {% endfor %}
                                     {% else %}
-                                        <img src="https://via.placeholder.com/640x480">
+                                        <img src="https://via.placeholder.com/800x480">
                                     {% endif %}
                                     </a>
                                     <div class="news-date">{{object.fecha|date:'d'}}<span class="month">{{object.fecha|date:'M'}}</span></div>
@@ -170,7 +170,7 @@
                             <article class="post">
                                 <figure class="post-thumb">
                                     {% if nota.foto %}
-                                        {% thumbnail nota.foto "380x250" as im %}
+                                        {% thumbnail nota.foto "100x60" crop="center" as im %}
                                             <img src="{{ im.url }}">
                                         {% endthumbnail %}
                                     {% elif nota.fotos.all %}
@@ -178,7 +178,7 @@
                                         <img src="{{thumb.foto.url_380x250}}" alt="">
                                         {% endfor %}
                                     {% else %}
-                                    <img src="https://via.placeholder.com/380x250">
+                                    <img src="https://via.placeholder.com/100x60">
                                     {% endif %}
 
                                 </figure>

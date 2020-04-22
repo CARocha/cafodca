@@ -35,11 +35,11 @@
                                         <figure class="image-box">
                                             <a href="{% url 'agenda-detail' object.id %}">
                                                 {% if object.foto %}
-                                                    {% thumbnail object.foto "380x250" crop="center" as im %}
+                                                    {% thumbnail object.foto "800x480" crop="center" as im %}
                                                         <img src="{{ im.url }}">
                                                     {% endthumbnail %}
                                                 {% else %}
-                                                    <img src="https://via.placeholder.com/380x250">
+                                                    <img src="https://via.placeholder.com/800x480">
                                                 {% endif %}
                                             </a>
                                             <div class="post-tag">{{object.inicio|date:'d M Y'}}</div>
@@ -49,7 +49,7 @@
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                         <div class="content-box">
                                             <h3><a href="{% url 'agenda-detail' object.id %}">{{object.evento}}</a></h3>
-                                            <ul class="event-held list-inline mb-15">
+                                            <ul class="event-held list-inline mb-5">
                                                 <li class="theme_color "><i class="black_color fa fa-clock-o mr-5"></i> De {{object.hora_inicio|time:'g:i a'}} - {{object.hora_fin|time:'g:i a'}}</li>
                                                 <li class="theme_color "> <i class="black_color fa fa-map-marker mr-5"></i>{{object.lugar}}</li>
                                             </ul>
@@ -105,7 +105,7 @@
                             <article class="post">
                                 <figure class="post-thumb">
                                     {% if nota.foto %}
-                                        {% thumbnail nota.foto "380x250" crop="center" as im %}
+                                        {% thumbnail nota.foto "100x60" crop="center" as im %}
                                             <img src="{{ im.url }}">
                                         {% endthumbnail %}
                                     {% elif nota.fotos.all %}
@@ -113,7 +113,7 @@
                                         <img src="{{thumb.foto.url_380x250}}" alt="">
                                         {% endfor %}
                                     {% else %}
-                                    <img src="https://via.placeholder.com/380x250">
+                                    <img src="https://via.placeholder.com/100x60">
                                     {% endif %}
 
                                 </figure>
