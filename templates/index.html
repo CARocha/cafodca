@@ -36,7 +36,7 @@
                     data-elementdelay="0.01"
                     data-endelementdelay="0.3"
                     data-endspeed="1200"
-                    data-endeasing="Power4.easeIn"><h3 class="bg-color">{{portada.descripcion|safe|truncatechars:102}}</h3></div>
+                    data-endeasing="Power4.easeIn"><h3 class="bg-color">{{portada.descripcion|safe}}</h3></div>
 
                     {% comment %} <div class="tp-caption sfl sfb tp-resizeme text-center prueba"
                     data-x="center" data-hoffset="0"
@@ -113,7 +113,7 @@
 
                 <!--Featured Column-->
                 <div class="column default-featured-column blog-news-column noticias-index style-three col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <h4 class="inner-title double-line line-left">NOTICIAS RECIENTES</h4>
+                    <h4 class="inner-title double-line line-left">DESTACADOS</h4>
                     <div class="featured-project-two owl-carousel owl-nav-style owl-nav3">
                         {% for nota in notas %}
                         <article class="inner-box mb-xs-60">
