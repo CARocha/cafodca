@@ -65,7 +65,7 @@
                                     <a href="#">
                                     {% if object.foto %}
                                         {% thumbnail object.foto "640x480" crop="center" as im %}
-                                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }} alt="{{object.titulo}}">
+                                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"  alt="{{object.titulo}}">
                                         {% endthumbnail %}
                                     {% elif object.video%}
                                         {% video object.video '850x637' %}
