@@ -5,6 +5,7 @@
 {% load embed_video_tags %}
 {% block extra_css %}
 <link rel="stylesheet" href="/static/css/imagehover.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 {% endblock extra_css %}
 {% block content %}
 <!--Page Title-->
@@ -65,7 +66,7 @@
         <div class="row clearfix bliblioteca-list-section">
             <div class="column default-featured-column style-two col-lg-4 col-md-6 col-sm-6 col-xs-12">
                 <div class="content-bliblioteca">
-                    <a href="#">
+                    <a data-fancybox data-animation-duration="700" data-src="#detalle-publicacion" href="javascript:;">
                         <figure class="image-box imghvr-zoom-out">
                             <img src="https://via.placeholder.com/350x453" alt="" >
                             <figcaption>
@@ -80,7 +81,39 @@
                     </a>
                     <div class="content-box">
                         <h3><a href="#">Donec convallis tellus aliquam, rhoncus purus in, semper ante. Ut ac diam ipsum. </a></h3>
-                        <a href="#" class="theme-btn btn-style-two btn-sm mt-10">Read More</a>
+                        <a class="theme-btn btn-style-two btn-sm mt-10">Descargar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: none;" id="detalle-publicacion" class="animated-modal">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <figure class="image-box">
+                                <img src="https://via.placeholder.com/350x453" alt="" width="100%">
+                            </figure>   
+                        </div>
+                        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+                            <div class="description-publicacion">
+                                <h3>Guía de aprendizaje: Controles Básicos del CAPS</h3>
+                                <hr>
+                                <div class="text"><strong class="text-theme-colored"><i class="fa fa-suitcase"></i> Coparte: </strong>SIMAS</div>
+                                <div class="text mt-15"><strong class="text-theme-colored"><i class="fa fa-user"></i> Autor: </strong>Pablo Garcia</div>
+                                <div class="text mt-15"><strong class="text-theme-colored"><i class="fa fa-user"></i> Descripción: </strong>
+                                    <p class="mt-10">
+                                        Curabitur quis libero non ante varius aliquam sit amet ac diam. Curabitur sagittis, nunc in mollis aliquet, purus eros iaculis 
+                                        libero, in facilisis erat turpis a sapien. Nunc id maximus ante, et accumsan purus. Sed bibendum lectus nec mollis commodo. Morbi 
+                                        laoreet urna quis ultrices placerat. Proin hendrerit libero sed mattis convallis. Phasellus non sollicitudin elit. Quisque ut risus 
+                                        id erat consequat faucibus. Aenean eget facilisis mi. Cras condimentum augue vel elit mollis rhoncus. Vivamus tristique ante at 
+                                        ipsum pharetra, vel pulvinar dui sollicitudin. Fusce non nunc elementum, hendrerit nisl ac, ornare dui. Donec finibus ante quis 
+                                        sollicitudin imperdiet. Donec tortor ante, hendrerit quis maximus sit amet, convallis vel elit.
+                                    </p>
+                                </div>
+                                <div class="text mt-15"><strong class="text-theme-colored"> Temas: </strong>Controles básicos</div>
+                                <a class="theme-btn btn-style-two btn-sm mt-20">Descargar archivo</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -106,6 +139,7 @@
                     </div>
                 </div>
             </div>
+            
 
             <div class="column default-featured-column style-two col-lg-4 col-md-6 col-sm-6 col-xs-12">
                 <div class="content-bliblioteca">
@@ -136,5 +170,5 @@
 
 {% endblock content %}
 {% block extra_js %}
-
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 {% endblock extra_js %}

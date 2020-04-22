@@ -566,3 +566,17 @@ input[type=file]{
   -moz-transition: all 500ms ease;
   transition: all 500ms ease;
 }
+#detalle-publicacion h3{
+  font-size: 18px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.description-publicacion h3{
+  color: #453A36;
+}
+.description-publicacion .text-theme-colored{
+  color: #a0a916;9
+}
+.description-publicacion .text{
+  font-size: 16px;
+}
