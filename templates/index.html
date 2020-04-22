@@ -120,17 +120,17 @@
                             <figure class="image-box">
                                 <a href="{% url 'notas-detail' nota.id %}">
                                     {% if nota.foto %}
-                                        {% thumbnail nota.foto "640x480" crop="center" as im %}
+                                        {% thumbnail nota.foto "800x480" crop="center" as im %}
                                             <img src="{{ im.url }}" alt="{{nota.titulo}}">
                                         {% endthumbnail %}
                                     {% elif nota.video %}
-                                        {% video nota.video '375x282' %}
+                                        {% video nota.video '377x226' %}
                                     {% elif nota.fotos.all %}
                                         {%for thumb in nota.fotos.all|slice:"1"%}
-                                        <img src="{{thumb.foto.url_640x480}}" alt="{{nota.titulo}}">
+                                        <img src="{{thumb.foto.url_800x480}}" alt="{{nota.titulo}}">
                                         {% endfor %}
                                     {% else %}
-                                        <img src="https://via.placeholder.com/640x480">
+                                        <img src="https://via.placeholder.com/800x480">
                                     {% endif %}
                                 </a>
 
