@@ -2,7 +2,7 @@
 
 {% load thumbnail %}
 {% load el_pagination_tags %}
-{% load embed_video_tags %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="/static/css/imagehover.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
@@ -33,7 +33,7 @@
                         <div class="form-group col-md-4 col-sm-6 col-xs-12">
                             <div class="field-label">Coparte</div>
                             <select name="select" class>
-                                <option value="value1" selected>Value 1</option> 
+                                <option value="value1" selected>Value 1</option>
                                 <option value="value2">Value 2</option>
                                 <option value="value3">Value 3</option>
                             </select>
@@ -41,7 +41,7 @@
                         <div class="form-group col-md-4 col-sm-6 col-xs-12">
                             <div class="field-label">País</div>
                             <select name="select" class>
-                                <option value="value1" selected>Value 1</option> 
+                                <option value="value1" selected>Value 1</option>
                                 <option value="value2">Value 2</option>
                                 <option value="value3">Value 3</option>
                             </select>
@@ -49,7 +49,7 @@
                         <div class="form-group col-md-4 col-sm-6 col-xs-12">
                             <div class="field-label">Tema</div>
                             <select name="select" class>
-                                <option value="value1" selected>Value 1</option> 
+                                <option value="value1" selected>Value 1</option>
                                 <option value="value2">Value 2</option>
                                 <option value="value3">Value 3</option>
                             </select>
@@ -64,105 +64,70 @@
         </div>
 
         <div class="row clearfix bliblioteca-list-section">
+
+        {% for obj in biblioteca_list %}
             <div class="column default-featured-column style-two col-lg-4 col-md-6 col-sm-6 col-xs-12">
                 <div class="content-bliblioteca">
-                    <a data-fancybox data-animation-duration="700" data-src="#detalle-publicacion" href="javascript:;">
+                    <a data-fancybox data-animation-duration="700" data-src="#detalle-publicacion-{{obj.id}}" href="javascript:;">
                         <figure class="image-box imghvr-zoom-out">
-                            <img src="https://via.placeholder.com/350x453" alt="" >
+                            {% if obj.imagen_portada %}
+                                    {% thumbnail obj.imagen_portada "350x453" crop="center" as im %}
+                                        <img src="{{ im.url }}"  alt="{{obj.titulo}}" width="100%">
+                                    {% endthumbnail %}
+                                {% else %}
+                                    <img src="https://via.placeholder.com/350x453" alt="{{obj.titulo}}" width="100%">
+                                {% endif %}
                             <figcaption>
                                 <p class="text-bliblioteca">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed consectetur arcu. Pellentesque pretium nisi ac tristique auctor. 
-                                    Pellentesque congue pellentesque orci non egestas. In at sapien mauris. Nunc egestas non velit nec gravida. Praesent eget nisl feugiat, 
-                                    tempor elit vitae, pharetra dolor. Aenean rhoncus, magna sit amet facilisis feugiat, orci justo sagittis quam, ac scelerisque nisi est a quam. 
-                                    Aenean at congue turpis. Ut eleifend ex nec mi ultricies dictum.
+                                    {{obj.descripcion|safe}}
                                 </p>
                             </figcaption>
                         </figure>
                     </a>
                     <div class="content-box">
-                        <h3><a href="#">Donec convallis tellus aliquam, rhoncus purus in, semper ante. Ut ac diam ipsum. </a></h3>
-                        <a class="theme-btn btn-style-two btn-sm mt-10">Descargar</a>
+                        <h3><a href="#">{{obj.titulo}}</a></h3>
+                        <a class="theme-btn btn-style-two btn-sm mt-10" target="_blank"  href="/uploads/{{obj.adjunto}}">Descargar</a>
                     </div>
                 </div>
             </div>
 
-            <div style="display: none;" id="detalle-publicacion" class="animated-modal">
+            <div style="display: none;" id="detalle-publicacion-{{obj.id}}" class="animated-modal">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <figure class="image-box">
-                                <img src="https://via.placeholder.com/350x453" alt="" width="100%">
-                            </figure>   
+                                {% if obj.imagen_portada %}
+                                    {% thumbnail obj.imagen_portada "350x453" crop="center" as im %}
+                                        <img src="{{ im.url }}"  alt="{{obj.titulo}}" width="100%">
+                                    {% endthumbnail %}
+                                {% else %}
+                                    <img src="https://via.placeholder.com/350x453" alt="{{obj.titulo}}" width="100%">
+                                {% endif %}
+                            </figure>
                         </div>
                         <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
                             <div class="description-publicacion">
-                                <h3>Guía de aprendizaje: Controles Básicos del CAPS</h3>
+                                <h3>{{obj.titulo}}</h3>
                                 <hr>
-                                <div class="text"><strong class="text-theme-colored"><i class="fa fa-suitcase"></i> Coparte: </strong>SIMAS</div>
-                                <div class="text mt-15"><strong class="text-theme-colored"><i class="fa fa-user"></i> Autor: </strong>Pablo Garcia</div>
+                                <div class="text"><strong class="text-theme-colored"><i class="fa fa-suitcase"></i> Coparte: </strong>{{obj.coparte}}</div>
+                                <div class="text mt-15"><strong class="text-theme-colored"><i class="fa fa-user"></i> Autor: </strong>{{obj.autor}}</div>
                                 <div class="text mt-15"><strong class="text-theme-colored"><i class="fa fa-user"></i> Descripción: </strong>
                                     <p class="mt-10">
-                                        Curabitur quis libero non ante varius aliquam sit amet ac diam. Curabitur sagittis, nunc in mollis aliquet, purus eros iaculis 
-                                        libero, in facilisis erat turpis a sapien. Nunc id maximus ante, et accumsan purus. Sed bibendum lectus nec mollis commodo. Morbi 
-                                        laoreet urna quis ultrices placerat. Proin hendrerit libero sed mattis convallis. Phasellus non sollicitudin elit. Quisque ut risus 
-                                        id erat consequat faucibus. Aenean eget facilisis mi. Cras condimentum augue vel elit mollis rhoncus. Vivamus tristique ante at 
-                                        ipsum pharetra, vel pulvinar dui sollicitudin. Fusce non nunc elementum, hendrerit nisl ac, ornare dui. Donec finibus ante quis 
-                                        sollicitudin imperdiet. Donec tortor ante, hendrerit quis maximus sit amet, convallis vel elit.
+                                        {{obj.descripcion|safe}}
                                     </p>
                                 </div>
-                                <div class="text mt-15"><strong class="text-theme-colored"> Temas: </strong>Controles básicos</div>
-                                <a class="theme-btn btn-style-two btn-sm mt-20">Descargar archivo</a>
+                                <div class="text mt-15"><strong class="text-theme-colored"> Temas: </strong>
+                                {% for temas in obj.tematicas.all %}
+                                    {{temas}}{% if forloop.last %}{%else%},{%endif%}
+                                {% endfor %}
+                                </div>
+                                <a class="theme-btn btn-style-two btn-sm mt-20" target="_blank"  href="/uploads/{{obj.adjunto}}">Descargar archivo</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="column default-featured-column style-two col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="content-bliblioteca">
-                    <a href="#">
-                        <figure class="image-box imghvr-zoom-out">
-                            <img src="https://via.placeholder.com/350x453" alt="" >
-                            <figcaption>
-                                <p class="text-bliblioteca">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed consectetur arcu. Pellentesque pretium nisi ac tristique auctor. 
-                                    Pellentesque congue pellentesque orci non egestas. In at sapien mauris. Nunc egestas non velit nec gravida. Praesent eget nisl feugiat, 
-                                    tempor elit vitae, pharetra dolor. Aenean rhoncus, magna sit amet facilisis feugiat, orci justo sagittis quam, ac scelerisque nisi est a quam. 
-                                    Aenean at congue turpis. Ut eleifend ex nec mi ultricies dictum.
-                                </p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                    <div class="content-box">
-                        <h3><a href="#">Donec convallis tellus aliquam, rhoncus purus in, semper ante. Ut ac diam ipsum. </a></h3>
-                        <a href="#" class="theme-btn btn-style-two btn-sm mt-10">Read More</a>
-                    </div>
-                </div>
-            </div>
-            
-
-            <div class="column default-featured-column style-two col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="content-bliblioteca">
-                    <a href="#">
-                        <figure class="image-box imghvr-zoom-out">
-                            <img src="https://via.placeholder.com/350x453" alt="" >
-                            <figcaption>
-                                <p class="text-bliblioteca">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed consectetur arcu. Pellentesque pretium nisi ac tristique auctor. 
-                                    Pellentesque congue pellentesque orci non egestas. In at sapien mauris. Nunc egestas non velit nec gravida. Praesent eget nisl feugiat, 
-                                    tempor elit vitae, pharetra dolor. Aenean rhoncus, magna sit amet facilisis feugiat, orci justo sagittis quam, ac scelerisque nisi est a quam. 
-                                    Aenean at congue turpis. Ut eleifend ex nec mi ultricies dictum.
-                                </p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                    <div class="content-box">
-                        <h3><a href="#">Donec convallis tellus aliquam, rhoncus purus in, semper ante. Ut ac diam ipsum. </a></h3>
-                        <a href="#" class="theme-btn btn-style-two btn-sm mt-10">Read More</a>
-                    </div>
-                </div>
-            </div>
-
+        {% endfor %}
 
         </div>
     </div>

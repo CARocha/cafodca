@@ -20,6 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from notas import views as notas
 from django.views.generic import TemplateView
+from biblioteca.views import ListaBiblioteca
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -38,6 +39,6 @@ urlpatterns = [
     url(r'^foros/', include('foros.urls')),
     # url(r'^busqueda/$', include('django_google_cse.urls')),
     url(r'^pages/', include('django.contrib.flatpages.urls')),
-    url(r'^biblioteca/$', TemplateView.as_view(template_name="biblioteca.html")),
+    url(r'^biblioteca/$', ListaBiblioteca.as_view(), name="lista_biblioteca"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

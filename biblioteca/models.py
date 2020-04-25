@@ -33,6 +33,7 @@ class Publicaciones(models.Model):
     coparte = models.ForeignKey(Contraparte)
     descripcion = models.TextField('Descripción')
     tematicas = models.ManyToManyField(Tematicas)
+    adjunto = models.FileField(upload_to='biblioteca/', null=True, blank=True)
 
     user = models.ForeignKey(User)
 
