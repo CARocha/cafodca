@@ -35,7 +35,7 @@ class Publicaciones(models.Model):
     tematicas = models.ManyToManyField(Tematicas)
 
     user = models.ForeignKey(User)
-    
+
 
     def __unicode__(self):
         return self.titulo
