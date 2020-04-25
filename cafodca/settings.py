@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'contrapartes',
     'agendas',
     'configuracion',
+    'biblioteca',
 ]
 
 SITE_ID = 2
