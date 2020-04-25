@@ -12,3 +12,4 @@ class SiteConfigAdmin(SingletonModelAdmin):
 
 
 admin.site.register(SiteConfiguration, SiteConfigAdmin)
+#admin.site.register(FotosPortada)

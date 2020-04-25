@@ -9,6 +9,7 @@ from .forms import *
 from agendas.models import *
 from foros.models import *
 from foros.forms import *
+from configuracion.models import FotosPortada
 from django.shortcuts import render_to_response, get_object_or_404, redirect
 import datetime
 from django.contrib.auth.decorators import login_required
@@ -35,6 +36,7 @@ def index(request,template='index.html'):
 	paises = Pais.objects.all()
 	contrapartes = Contraparte.objects.all()
 	imagenes = Imagen.objects.exclude(foto__exact='').order_by('-id')[:8]
+	fotos = FotosPortada.objects.order_by('orden')
 
 	return render(request, template, locals())
 
@@ -54,6 +56,13 @@ def nota_detail(request,id, template='blog-single.html'):
 
 def lista_notas_pais(request,id, template='blog-list.html'):
 	object_list = Notas.objects.filter(user__userprofile__contraparte__pais = id).order_by('-id')
+	ultimas_notas = Notas.objects.order_by('-id')[:3]
+	paises = Pais.objects.all()
+
+	return render(request, template, locals())
+
+def lista_notas_copartes(request,id, template='contrapartes/contraparte_notas_list.html'):
+	object_list = Notas.objects.filter(user__userprofile__contraparte__id = id).order_by('-id')
 	ultimas_notas = Notas.objects.order_by('-id')[:3]
 	paises = Pais.objects.all()
 
@@ -96,7 +105,7 @@ def notify_all_notas(notas):
                                  'url': '%s/notas/%s' % (site, notas.id),
                                  #'url_aporte': '%s/foros/ver/%s/#aporte' % (site, foros.id),
                                  })
-    send_mail('Nueva Nota en CAFOD', contenido, 'cafod@cafodca.org', [user.email for user in users if user.email])
+    send_mail('Nueva Nota en CAFOD', contenido, 'cafodca@gmail.com', [user.email for user in users if user.email])
 
 
 def ver_imagenes(request):

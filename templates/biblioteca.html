@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% load thumbnail %}
+{% load el_pagination_tags %}
+{% load embed_video_tags %}
+{% block extra_css %}
+<link rel="stylesheet" href="/static/css/imagehover.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+{% endblock extra_css %}
+{% block content %}
+<!--Page Title-->
+<section class="page-title" style="background-image:url(/static/images/banner/2.jpg);">
+    <div class="auto-container">
+        <div class="sec-title">
+            <h1><span class="normal-font">Biblioteca</span></h1>
+            <div class="bread-crumb">
+                <a href="/">Inicio</a> / <a href="#" class="current">Biblioteca</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="recent-projects">
+    <div class="auto-container">
+        <!--Filters Section-->
+        <div class="filters-section">
+            <div class="filter-form">
+                <form method="post" action="index.html">
+                    <div class="row clearfix">
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <div class="field-label">Buscar</div>
+                            <input type="text" name="keyword" value="" placeholder="Buscar...">
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <div class="field-label">Coparte</div>
+                            <select name="select" class>
+                                <option value="value1" selected>Value 1</option> 
+                                <option value="value2">Value 2</option>
+                                <option value="value3">Value 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <div class="field-label">País</div>
+                            <select name="select" class>
+                                <option value="value1" selected>Value 1</option> 
+                                <option value="value2">Value 2</option>
+                                <option value="value3">Value 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <div class="field-label">Tema</div>
+                            <select name="select" class>
+                                <option value="value1" selected>Value 1</option> 
+                                <option value="value2">Value 2</option>
+                                <option value="value3">Value 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2 col-sm-2 col-xs-12">
+                            <div class="field-label">&nbsp;</div>
+                            <button type="button" class="theme-btn btn-style-two">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row clearfix bliblioteca-list-section">
+            <div class="column default-featured-column style-two col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="content-bliblioteca">
+                    <a data-fancybox data-animation-duration="700" data-src="#detalle-publicacion" href="javascript:;">
+                        <figure class="image-box imghvr-zoom-out">
+                            <img src="https://via.placeholder.com/350x453" alt="" >
+                            <figcaption>
+                                <p class="text-bliblioteca">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed consectetur arcu. Pellentesque pretium nisi ac tristique auctor. 
+                                    Pellentesque congue pellentesque orci non egestas. In at sapien mauris. Nunc egestas non velit nec gravida. Praesent eget nisl feugiat, 
+                                    tempor elit vitae, pharetra dolor. Aenean rhoncus, magna sit amet facilisis feugiat, orci justo sagittis quam, ac scelerisque nisi est a quam. 
+                                    Aenean at congue turpis. Ut eleifend ex nec mi ultricies dictum.
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                    <div class="content-box">
+                        <h3><a href="#">Donec convallis tellus aliquam, rhoncus purus in, semper ante. Ut ac diam ipsum. </a></h3>
+                        <a class="theme-btn btn-style-two btn-sm mt-10">Descargar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: none;" id="detalle-publicacion" class="animated-modal">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <figure class="image-box">
+                                <img src="https://via.placeholder.com/350x453" alt="" width="100%">
+                            </figure>   
+                        </div>
+                        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+                            <div class="description-publicacion">
+                                <h3>Guía de aprendizaje: Controles Básicos del CAPS</h3>
+                                <hr>
+                                <div class="text"><strong class="text-theme-colored"><i class="fa fa-suitcase"></i> Coparte: </strong>SIMAS</div>
+                                <div class="text mt-15"><strong class="text-theme-colored"><i class="fa fa-user"></i> Autor: </strong>Pablo Garcia</div>
+                                <div class="text mt-15"><strong class="text-theme-colored"><i class="fa fa-user"></i> Descripción: </strong>
+                                    <p class="mt-10">
+                                        Curabitur quis libero non ante varius aliquam sit amet ac diam. Curabitur sagittis, nunc in mollis aliquet, purus eros iaculis 
+                                        libero, in facilisis erat turpis a sapien. Nunc id maximus ante, et accumsan purus. Sed bibendum lectus nec mollis commodo. Morbi 
+                                        laoreet urna quis ultrices placerat. Proin hendrerit libero sed mattis convallis. Phasellus non sollicitudin elit. Quisque ut risus 
+                                        id erat consequat faucibus. Aenean eget facilisis mi. Cras condimentum augue vel elit mollis rhoncus. Vivamus tristique ante at 
+                                        ipsum pharetra, vel pulvinar dui sollicitudin. Fusce non nunc elementum, hendrerit nisl ac, ornare dui. Donec finibus ante quis 
+                                        sollicitudin imperdiet. Donec tortor ante, hendrerit quis maximus sit amet, convallis vel elit.
+                                    </p>
+                                </div>
+                                <div class="text mt-15"><strong class="text-theme-colored"> Temas: </strong>Controles básicos</div>
+                                <a class="theme-btn btn-style-two btn-sm mt-20">Descargar archivo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column default-featured-column style-two col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="content-bliblioteca">
+                    <a href="#">
+                        <figure class="image-box imghvr-zoom-out">
+                            <img src="https://via.placeholder.com/350x453" alt="" >
+                            <figcaption>
+                                <p class="text-bliblioteca">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed consectetur arcu. Pellentesque pretium nisi ac tristique auctor. 
+                                    Pellentesque congue pellentesque orci non egestas. In at sapien mauris. Nunc egestas non velit nec gravida. Praesent eget nisl feugiat, 
+                                    tempor elit vitae, pharetra dolor. Aenean rhoncus, magna sit amet facilisis feugiat, orci justo sagittis quam, ac scelerisque nisi est a quam. 
+                                    Aenean at congue turpis. Ut eleifend ex nec mi ultricies dictum.
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                    <div class="content-box">
+                        <h3><a href="#">Donec convallis tellus aliquam, rhoncus purus in, semper ante. Ut ac diam ipsum. </a></h3>
+                        <a href="#" class="theme-btn btn-style-two btn-sm mt-10">Read More</a>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="column default-featured-column style-two col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="content-bliblioteca">
+                    <a href="#">
+                        <figure class="image-box imghvr-zoom-out">
+                            <img src="https://via.placeholder.com/350x453" alt="" >
+                            <figcaption>
+                                <p class="text-bliblioteca">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed consectetur arcu. Pellentesque pretium nisi ac tristique auctor. 
+                                    Pellentesque congue pellentesque orci non egestas. In at sapien mauris. Nunc egestas non velit nec gravida. Praesent eget nisl feugiat, 
+                                    tempor elit vitae, pharetra dolor. Aenean rhoncus, magna sit amet facilisis feugiat, orci justo sagittis quam, ac scelerisque nisi est a quam. 
+                                    Aenean at congue turpis. Ut eleifend ex nec mi ultricies dictum.
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                    <div class="content-box">
+                        <h3><a href="#">Donec convallis tellus aliquam, rhoncus purus in, semper ante. Ut ac diam ipsum. </a></h3>
+                        <a href="#" class="theme-btn btn-style-two btn-sm mt-10">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+{% endblock extra_js %}

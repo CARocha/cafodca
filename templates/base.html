@@ -9,20 +9,9 @@
 
 <title>{{ site_config.site_name }}</title>
 {% block share_fb %}{% endblock share_fb %}
-<link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
+
+<link rel="icon" type="image/png" href="/static/images/favicon/cafod.png">
+
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
@@ -84,7 +73,6 @@
                             <a href="https://twitter.com/CAFOD" class="twitter img-circle"><span class="fa fa-twitter"></span></a>
                             <a href="http://www.youtube.com/cafodtv" class="youtube img-circle"><span class="fa fa-youtube"></span></a>
                             <a href="https://www.instagram.com/CAFOD" class="instagram img-circle"><span class="fa fa-instagram"></span></a>
-                            <a href="https://plus.google.com/+CAFOD" class="google-plus img-circle"><span class="fa fa-google-plus"></span></a>
 
                         </div>
                     </div>
@@ -119,23 +107,25 @@
 
                         <div class="navbar-collapse collapse clearfix">
                             <ul class="navigation">
-                                 {% if user.is_authenticated %}
-                                    <li><a href="/foros/perfil/">{{user.get_full_name|default:user.username}}</a></li>
-                                    <li><a href="/accounts/logout/">Salir</a></li>
-                                {% else %}
-                                    <li><a href="/accounts/login/">Iniciar sesion</a></li>
-                                {% endif %}
+
                                 <li><a href="/">Inicio</a></li>
                                 <li><a href="/notas">Noticias</a></li>
                                 <li><a href="/acerca/">Acerca de</a></li>
                                 <li><a href="/contrapartes/">Copartes</a></li>
                                 <li><a href="/agendas">Eventos</a></li>
+                                {% comment %} <li><a href="/biblioteca">Biblioteca</a></li> {% endcomment %}
                                 <li class="dropdown"><a href="#">Galeria</a>
                                     <ul>
                                         <li><a href="/notas/imagenes/">Imágenes</a></li>
                                         <li><a href="/notas/videos/">Videos</a></li>
                                     </ul>
                                 </li>
+                                {% if user.is_authenticated %}
+                                    <li class="visible-xs"><a href="/foros/perfil/">{{user.get_full_name|default:user.username}}</a></li>
+                                    <li class="visible-xs"><a href="/accounts/logout/">Salir</a></li>
+                                {% else %}
+                                    <li class="visible-xs"><a href="/accounts/login/">Iniciar sesion</a></li>
+                                {% endif %}
 
 
                             </ul>
@@ -167,9 +157,9 @@
                             <ul class="contact-info">
                                 <li>
                                     <span class="icon fa fa-map-marker"></span>
-                                    De Enacal Altamira 2 Cuadras arriba, Casa#83 <br> Colonial Los Robles, Managua, Nicaraguaa
+                                    De los semáfaros de la Vicky 1 cuadra al Oeste ½ cuadra al sur. Edificio SNV
                                 </li>
-                                <li><span class="icon fa fa-phone"></span> (505) 2270-0240</li>
+                                <li><span class="icon fa fa-phone"></span> (505) 2270-0240 ext 106</li>
                                 <li><span class="icon fa fa-envelope-o"></span> wberrios@cafod.org.uk</li>
                             </ul>
 
@@ -179,7 +169,6 @@
                                 <a href="https://twitter.com/CAFOD" class="twitter img-circle"><span class="fa fa-twitter"></span></a>
                                 <a href="http://www.youtube.com/cafodtv" class="youtube img-circle"><span class="fa fa-youtube"></span></a>
                                 <a href="https://www.instagram.com/CAFOD" class="instagram img-circle"><span class="fa fa-instagram"></span></a>
-                                <a href="https://plus.google.com/+CAFOD" class="google-plus img-circle"><span class="fa fa-google-plus"></span></a>
                             </div>
 
                         </div>
