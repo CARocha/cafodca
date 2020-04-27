@@ -1,0 +1,51 @@
+{% extends "admin/base_admin.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div data-bac="#fcfcfc">
+    <section class="welcome-section pt-20 pb-20">
+        <div class="auto-container">
+            <div class="row clearfix perfil">
+                <div class="panel panel-default">
+                    <div class="panel-title double-line line-left">
+                        <div style="flex-grow:10">
+                            {% if request.path == '/foros/privado/biblioteca/crear/' %}
+                                <h3 class="inner-title ">Crear Documentos</h3>
+                            {% else %}
+                                <h3 class="inner-title ">Edición de Documento</h3>
+                            {% endif %}
+                        </div>
+
+
+                    </div>
+                    <div class="panel-body">
+                        <form action="." method="POST" class="form-inline" enctype="multipart/form-data">{% csrf_token %}
+                            {% if form.errors %}
+                            {{form.errors}}
+                            {% endif %}
+                            {{ form.media }}
+                            {{form|crispy}}
+                            {% if request.path == '/foros/privado/biblioteca/crear/' %}
+                                <hr>
+                                <input class="theme-btn btn-style-two admin-btn" type="submit" name="Editar" value="Guardar Nuevo Documento para biblioteca">
+                            {% else %}
+                                <input class="theme-btn btn-style-two admin-btn" type="submit" name="Editar" value="Actualizar">
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock content %}
+
+{% block extra_js %}
+<script type="text/javascript">
+    $( "input, select" ).addClass( "form-control" );
+    $( "input[type='submit']" ).removeClass( "form-control" ).addClass( "btn" );
+    $( "input[type='file']" ).removeClass( "form-control" );
+
+</script>
+{% endblock extra_js %}

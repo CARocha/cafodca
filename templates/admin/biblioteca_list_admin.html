@@ -1,0 +1,89 @@
+{% extends "admin/base_admin.html" %}
+
+{% block content %}
+
+<div data-bac="#fcfcfc">
+    <section class="welcome-section pt-20 pb-20">
+        <div class="auto-container">
+            <div class="row clearfix perfil">
+                <div class="panel panel-default">
+                    <div class="panel-title double-line line-left">
+                        <div style="flex-grow: 8">
+                            <h3 class="inner-title ">Biblioteca de la organización</h3>
+                        </div>
+                        <a class="theme-btn btn-style-two admin-btn" href="/foros/privado/biblioteca/crear/">Añadir Documento Para Biblioteca</a>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover" id="example"  style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Titulo</th>
+                                        <th>Fecha</th>
+                                        <th>Editar</th>
+                                        <th>Eliminar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for nota in object_list %}
+                                    <tr>
+                                        <td>{{nota.id}}</td>
+                                        <td>{{nota.titulo}}</td>
+                                        <td>{{nota.fecha}}</td>
+                                        <td>
+                                            <a href="{% url 'biblioteca-editar' nota.id %}" class="btn btn-success btn-small-special"><span class="fa fa-pencil"></span></a>
+                                        </td>
+                                        <td>
+                                            <a data-toggle="modal" href='#modal-id-{{nota.id}}' class="btn btn-danger btn-small-special"><span class="fa fa-trash"></span></a>
+                                        </td>
+                                    </tr>
+                                    <div class="modal fade" id="modal-id-{{nota.id}}">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+
+                                                    <h4 class="modal-title">Eliminar Publicación</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    El documento "{{nota.titulo}}" se eliminara permanentemente.
+                                                    ¿Esta seguro que desea eliminar El documento?
+                                                </div>
+                                                <div class="modal-footer">
+
+                                                    <a type="button" class="btn btn-danger" href="{% url 'eliminar-biblioteca' nota.id %}">Eliminar</a>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock content %}
+
+{% block extra_js %}
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.table').dataTable( {
+            "order": [[ 3, "desc" ]],
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+            }
+        } );
+    } );
+</script>
+{% endblock extra_js %}

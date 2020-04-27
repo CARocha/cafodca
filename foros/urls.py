@@ -2,6 +2,7 @@ from django.conf.urls import url
 from django.views.generic import ListView, DetailView
 from .models import *
 from .views import *
+from biblioteca.views import bibliotecas_personales, crear_biblioteca, biblioteca_editar, eliminar_biblioteca
 
 urlpatterns = [
     #url(r'^$', 'index', name='index'),
@@ -35,4 +36,9 @@ urlpatterns = [
     url(r'^aporte/borrar/(?P<id>\d+)/$', borrar_aporte, name='borrar-aporte'),
     url(r'^comentario/editar/(?P<comen_id>\d+)/$', editar_comentario, name='editar-comentario'),
     url(r'^comentario/borrar/(?P<id>\d+)/$', borrar_comentario, name='borrar-comentarios'),
+    #Esto es para biblioteca
+    url(r'^privado/biblioteca/$', bibliotecas_personales, name='biblioteca'),
+    url(r'^privado/biblioteca/crear/$', crear_biblioteca, name="crear-biblioteca"),
+    url(r'^privado/biblioteca/editar/(?P<id>\d+)/$', biblioteca_editar, name='biblioteca-editar'),
+    url(r'^privado/biblioteca/eliminar/(?P<id>\d+)', eliminar_biblioteca, name='eliminar-biblioteca'),
 ]
