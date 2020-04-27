@@ -75,7 +75,6 @@
                             <a href="https://twitter.com/CAFOD" class="twitter img-circle"><span class="fa fa-twitter"></span></a>
                             <a href="http://www.youtube.com/cafodtv" class="youtube img-circle"><span class="fa fa-youtube"></span></a>
                             <a href="https://www.instagram.com/CAFOD" class="instagram img-circle"><span class="fa fa-instagram"></span></a>
-                            <a href="https://plus.google.com/+CAFOD" class="google-plus img-circle"><span class="fa fa-google-plus"></span></a>
 
                         </div>
                     </div>
@@ -111,6 +110,7 @@
 
                                 <li><a href="/foros/perfil/">Perfil</a></li>
                                 <li><a href="/foros/privado/nota/">Notas</a></li>
+                                <li><a href="/foros/privado/biblioteca/">Bibliotecas</a></li>
                                 <li><a href="/foros/privado/agenda/">Eventos</a></li>
                                 <li><a href="/foros/lista/">Foro</a></li>
                                 <li><a href="/foros/privado/documento/">Documentos</a></li>
@@ -142,6 +142,12 @@
                     <a href="/foros/privado/nota/" type="button" class="btn btn-nav {% if '/foros/privado/nota/' in request.path %}active{% endif %}">
                         <span class="fa fa-file-text-o"></span>
                         <p>Notas</p>
+                    </a>
+                </div>
+                <div class="btn-group">
+                    <a href="/foros/privado/biblioteca/" type="button" class="btn btn-nav {% if '/foros/privado/biblioteca/' in request.path %}active{% endif %}">
+                        <span class="fa fa-file-text-o"></span>
+                        <p>Bibliotecas</p>
                     </a>
                 </div>
                 <div class="btn-group">
@@ -204,7 +210,7 @@
 
                             <ul class="contact-info">
                                 <li>
-                                    <span class="icon fa fa-map-marker"></span> 
+                                    <span class="icon fa fa-map-marker"></span>
                                     De Enacal Altamira 2 Cuadras arriba, Casa#83 <br> Colonial Los Robles, Managua, Nicaraguaa
                                 </li>
                                 <li><span class="icon fa fa-phone"></span> (505) 2270-0240 ext 105</li>
