@@ -13,7 +13,7 @@ class Tematicas(models.Model):
     nombre = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, editable=False)
 
-    def __str__(self):
+    def __unicode__(self):
         return self.nombre
 
     def save(self, *args, **kwargs):
