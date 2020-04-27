@@ -201,7 +201,7 @@
                                     <div class="news-content">
                                         <figure class="image-thumb">
                                         {% if lastnews.foto %}
-                                            {% thumbnail lastnews.foto "65x43" as im %}
+                                            {% thumbnail lastnews.foto "65x43" crop="center" as im %}
                                                 <img src="{{ im.url }}">
                                             {% endthumbnail %}
                                         {% elif lastnews.video%}
@@ -239,7 +239,7 @@
         <div class="footer-bottom">
             <div class="auto-container clearfix">
                 <!--Copyright-->
-                <div class="copyright text-center">Copyright 2018 &copy; Plataforma desarrollada por <a href="http://www.simas.org.ni/">SIMAS</a></div>
+                <div class="copyright text-center">Copyright 2020 &copy; Plataforma desarrollada por <a href="http://www.simas.org.ni/">SIMAS</a></div>
             </div>
         </div>
 
