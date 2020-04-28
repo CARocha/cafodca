@@ -62,16 +62,16 @@
                 </form>
             </div>
         </div> -->
-        <div class="row mb-20">
-            <h4>Temas:</h4>
+        <div class="mb-20">
+            <h4><b>Temas: </b></h4>
             <div role="tabpanel">
-                <ul class="nav nav-filter" role="tablist">
+                <ul class="list-filter" role="tablist">
                     <li role="presentation" class="active">
-                        <a class="btn btn-default filter-button mb-10" href="#" aria-controls="home" role="tab" data-toggle="tab" data-filter="all">Todos</a>
+                        <a class="theme-btn btn-style-three btn-sm mt-10" href="#" aria-controls="home" role="tab" data-toggle="tab" data-filter="all">Todos</a>
                     </li>
                     {% for obj in tematica %}
                     <li role="presentation">
-                        <a class="btn btn-default filter-button mb-10" href="#" aria-controls="tab" role="tab" data-toggle="tab" data-filter="{{obj.slug}}">{{obj}}</a>
+                        <a class="theme-btn btn-style-three btn-sm mt-10" href="#" aria-controls="tab" role="tab" data-toggle="tab" data-filter="{{obj.slug}}">{{obj}}</a>
                     </li>
                     {% endfor %}
                 </ul>

@@ -580,3 +580,13 @@ input[type=file]{
 .description-publicacion .text{
   font-size: 16px;
 }
+
+.list-filter li{
+  display: inline-block;
+}
+
+.list-filter li.active .btn-style-three{
+  background-color: #a0a916;
+  border: 2px solid #a0a916 !important;
+  color: #ffffff !important;
+}
