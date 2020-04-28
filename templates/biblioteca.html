@@ -62,12 +62,28 @@
                 </form>
             </div>
         </div> -->
+        <div class="row mb-20">
+            <h4>Temas:</h4>
+            <div role="tabpanel">
+                <ul class="nav nav-filter" role="tablist">
+                    <li role="presentation" class="active">
+                        <a class="btn btn-default filter-button mb-10" href="#" aria-controls="home" role="tab" data-toggle="tab" data-filter="all">Todos</a>
+                    </li>
+                    {% for obj in tematica %}
+                    <li role="presentation">
+                        <a class="btn btn-default filter-button mb-10" href="#" aria-controls="tab" role="tab" data-toggle="tab" data-filter="{{obj.slug}}">{{obj}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+        </div>
 
         <div class="row clearfix bliblioteca-list-section">
-        {% paginate 9 biblioteca_list %}
+        {% paginate 8 biblioteca_list %}
         {% for obj in biblioteca_list %}
-            <div class="column default-featured-column style-two col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="content-bliblioteca">
+            <div class="column default-featured-column style-two col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="content-bliblioteca filter all {{obj.all_tematicas|lower}}">
                     <a data-fancybox data-animation-duration="700" data-src="#detalle-publicacion-{{obj.id}}" href="javascript:;">
                         <figure class="image-box imghvr-zoom-out">
                             {% if obj.imagen_portada %}
@@ -128,7 +144,7 @@
                 </div>
             </div>
         {% endfor %}
-        
+
         <!-- Styled Pagination -->
         <div class="styled-pagination mb-20">
             <ul class="text-center">
@@ -142,4 +158,5 @@
 {% endblock content %}
 {% block extra_js %}
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/static/js/filter/filter.js"></script>
 {% endblock extra_js %}

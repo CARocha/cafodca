@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from .models import Publicaciones
+from .models import Publicaciones, Tematicas
 from .forms import BibliotecaForms
 # Create your views here.
 
@@ -12,7 +12,8 @@ class ListaBiblioteca(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ListaBiblioteca, self).get_context_data(**kwargs)
-        context['biblioteca_list'] = Publicaciones.objects.all()
+        context['biblioteca_list'] = Publicaciones.objects.order_by('-fecha')
+        context['tematica'] = Tematicas.objects.all()
         return context
 
 @login_required
