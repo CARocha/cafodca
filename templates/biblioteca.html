@@ -65,13 +65,13 @@
         <div class="mb-20">
             <h4><b>Temas: </b></h4>
             <div role="tabpanel">
-                <ul class="list-filter" role="tablist">
+                <ul class="nav nav-filter list-filter" role="tablist">
                     <li role="presentation" class="active">
-                        <a class="theme-btn btn-style-three btn-sm mt-10" href="#" aria-controls="home" role="tab" data-toggle="tab" data-filter="all">Todos</a>
+                        <a class="theme-btn btn-style-three btn-sm mt-10 filter-button" href="#" aria-controls="home" role="tab" data-toggle="tab" data-filter="all">Todos</a>
                     </li>
                     {% for obj in tematica %}
                     <li role="presentation">
-                        <a class="theme-btn btn-style-three btn-sm mt-10" href="#" aria-controls="tab" role="tab" data-toggle="tab" data-filter="{{obj.slug}}">{{obj}}</a>
+                        <a class="theme-btn btn-style-three btn-sm mt-10 filter-button" href="#" aria-controls="tab" role="tab" data-toggle="tab" data-filter="{{obj.slug}}">{{obj}}</a>
                     </li>
                     {% endfor %}
                 </ul>
@@ -82,8 +82,8 @@
         <div class="row clearfix bliblioteca-list-section">
         {% paginate 8 biblioteca_list %}
         {% for obj in biblioteca_list %}
-            <div class="column default-featured-column style-two col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                <div class="content-bliblioteca filter all {{obj.all_tematicas|lower}}">
+            <div class="column default-featured-column style-two col-lg-3 col-md-6 col-sm-6 col-xs-12 filter all {{obj.all_tematicas|lower}}">
+                <div class="content-bliblioteca ">
                     <a data-fancybox data-animation-duration="700" data-src="#detalle-publicacion-{{obj.id}}" href="javascript:;">
                         <figure class="image-box imghvr-zoom-out">
                             {% if obj.imagen_portada %}
