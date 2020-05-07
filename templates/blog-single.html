@@ -105,9 +105,9 @@
                                 <div class="post-share-options clearfix">
 
                                     <div class="pull-left tags">
-                                     {% if tags %}
-                                        <strong>Tag</strong> :
                                         {% tags_for_object object as tags%}
+                                    {% if tags %}
+                                        <strong>Tag</strong> :
                                         {% for tag  in tags  %}
                                                 <a>{{tag}}</a> {% if forloop.last %} {%else%},{% endif %}
                                         {% endfor %}
